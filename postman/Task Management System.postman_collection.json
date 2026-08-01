@@ -1,0 +1,731 @@
+{
+  "info": {
+    "_postman_id": "d225ddd7-1d8c-4c82-918c-e889b7dd44b2",
+    "name": "Task Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34880245",
+    "_collection_link": "https://go.postman.co/collection/34880245-d225ddd7-1d8c-4c82-918c-e889b7dd44b2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "ahmed saeed",
+                  "type": "text",
+                  "uuid": "9e9c7d82-fe23-41e5-91da-66890a9bfdb3"
+                },
+                {
+                  "key": "email",
+                  "value": "ahmedsaeed1722@gmail.com",
+                  "type": "text",
+                  "uuid": "b766956b-d2ba-4192-ae6c-33325caa0e36"
+                },
+                {
+                  "key": "password",
+                  "value": "password@@1",
+                  "type": "text",
+                  "uuid": "0e9df98a-4ca3-44ea-b7c6-09615d75668f"
+                },
+                {
+                  "key": "password_confirmation",
+                  "value": "password@@1",
+                  "type": "text",
+                  "uuid": "8630c281-12d5-4027-9f33-13c95be006d2"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/auth-sign/up",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth-sign",
+                "up"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "test@example.com",
+                  "type": "text",
+                  "uuid": "086ad4b8-fab9-4b1d-b6a1-cf78ba8451aa"
+                },
+                {
+                  "key": "password",
+                  "value": "password",
+                  "type": "text",
+                  "uuid": "938d64ab-1e2e-42f8-a15e-eb7cba889672"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/auth-sign/in",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth-sign",
+                "in"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "10|8htXbovObqsNrafGS9cv9BBbLUgRdfzVmmj7Chpr2e0e7399",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/auth-sign/out",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth-sign",
+                "out"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|F8hHnTj16kVMHcrpS3XxM0D4l7epJF4rOEgz0rxx0e5e2beb",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/projects",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "show",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|F8hHnTj16kVMHcrpS3XxM0D4l7epJF4rOEgz0rxx0e5e2beb",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/projects/2",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "store",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|F8hHnTj16kVMHcrpS3XxM0D4l7epJF4rOEgz0rxx0e5e2beb",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "project 1",
+                  "type": "text",
+                  "uuid": "6f87f9a6-cd54-4c6d-8dcb-508232f12bc9"
+                },
+                {
+                  "key": "description",
+                  "value": "project description",
+                  "type": "text",
+                  "uuid": "4bce920d-3709-49bc-9c09-f0d1e1d9d04e"
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "description": "active completed archived",
+                  "type": "text",
+                  "uuid": "5c976601-5658-4546-aa16-f40721929d67"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/projects",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|F8hHnTj16kVMHcrpS3XxM0D4l7epJF4rOEgz0rxx0e5e2beb",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "project 11",
+                  "type": "text",
+                  "uuid": "6f87f9a6-cd54-4c6d-8dcb-508232f12bc9"
+                },
+                {
+                  "key": "description",
+                  "value": "project description",
+                  "type": "text",
+                  "uuid": "4bce920d-3709-49bc-9c09-f0d1e1d9d04e"
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "description": "active completed archived",
+                  "type": "text",
+                  "uuid": "5c976601-5658-4546-aa16-f40721929d67"
+                },
+                {
+                  "key": "_method",
+                  "value": "PUT",
+                  "type": "text",
+                  "uuid": "f62d1c66-5fdb-472e-ae6c-8fe6ad70b3b7"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/projects/6",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{url}}/projects/5",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/tasks?status=todo&priority=high&title=task",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "todo",
+                  "description": "todo in_progress done",
+                  "type": "text"
+                },
+                {
+                  "key": "priority",
+                  "value": "high",
+                  "description": "low medium high",
+                  "type": "text"
+                },
+                {
+                  "key": "title",
+                  "value": "task",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "show",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/projects/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "projects",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "store",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "task 1",
+                  "type": "text",
+                  "uuid": "6f87f9a6-cd54-4c6d-8dcb-508232f12bc9"
+                },
+                {
+                  "key": "description",
+                  "value": "project description",
+                  "type": "text",
+                  "uuid": "4bce920d-3709-49bc-9c09-f0d1e1d9d04e"
+                },
+                {
+                  "key": "status",
+                  "value": "todo",
+                  "description": "todo in_progress  done",
+                  "type": "text",
+                  "uuid": "5c976601-5658-4546-aa16-f40721929d67"
+                },
+                {
+                  "key": "priority",
+                  "value": "low",
+                  "description": "low medium high",
+                  "type": "text",
+                  "uuid": "3e6f534d-98e1-45f5-8f7a-ce3f08ba2545"
+                },
+                {
+                  "key": "project_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "4dac8cfe-70b4-4335-9a25-601e1253c7b5"
+                },
+                {
+                  "key": "due_date",
+                  "value": "2026-8-10",
+                  "type": "text",
+                  "uuid": "e50d0dfa-fb35-4338-aedf-06bf8e48742e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/tasks",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "task 11",
+                  "type": "text",
+                  "uuid": "6f87f9a6-cd54-4c6d-8dcb-508232f12bc9"
+                },
+                {
+                  "key": "description",
+                  "value": "project description",
+                  "type": "text",
+                  "uuid": "4bce920d-3709-49bc-9c09-f0d1e1d9d04e"
+                },
+                {
+                  "key": "status",
+                  "value": "todo",
+                  "description": "todo in_progress  done",
+                  "type": "text",
+                  "uuid": "5c976601-5658-4546-aa16-f40721929d67"
+                },
+                {
+                  "key": "priority",
+                  "value": "low",
+                  "description": "low medium high",
+                  "type": "text",
+                  "uuid": "3e6f534d-98e1-45f5-8f7a-ce3f08ba2545"
+                },
+                {
+                  "key": "project_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "4dac8cfe-70b4-4335-9a25-601e1253c7b5"
+                },
+                {
+                  "key": "due_date",
+                  "value": "2026-8-10",
+                  "type": "text",
+                  "uuid": "e50d0dfa-fb35-4338-aedf-06bf8e48742e"
+                },
+                {
+                  "key": "_method",
+                  "value": "PUT",
+                  "type": "text",
+                  "uuid": "305eb158-1aee-4f3e-b1c6-9d5d82a37666"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/tasks/7",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{url}}/tasks/7",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|fhTWKtlZBSw4dFQFuMspiScBCxk5iIqSmOZBrfll19a2c97c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/dashboard",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "https://ameer.azq1.com/saudi_health/api/v1/website"
+    }
+  ]
+}
