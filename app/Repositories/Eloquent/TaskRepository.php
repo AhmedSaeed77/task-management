@@ -16,9 +16,9 @@ class TaskRepository extends Repository  implements TaskRepositoryInterface
         parent::__construct($model);
     }
 
-    public function getTasks()
+    public function getTasks(bool $count = false)
     {
-        return $this->model::query()
+        $query = $this->model::query()
             ->whereHas('project',function($q){
                 $q->where('user_id',auth()->id());
             })
@@ -33,8 +33,26 @@ class TaskRepository extends Repository  implements TaskRepositoryInterface
             })
             ->when(request()->search, function ($q) {
                 $q->where('title', 'like', '%' . request()->search . '%');
-            })
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            });
+            return $count ? $query->count() : $query->orderBy('created_at', 'desc')->paginate(20);
+    }
+
+    public function getStatusTasks($status,bool $count = false)
+    {
+        $query = $this->model::query()
+            ->whereHas('project',function($q){
+                $q->where('user_id',auth()->id());
+            })->where('status',$status);
+        return $count ? $query->count() : $query->orderBy('created_at', 'desc')->paginate(20);
+    }
+    
+    public function getOverDueTasks(bool $count = false)
+    {
+        $query = $this->model::query()
+            ->whereHas('project',function($q){
+                $q->where('user_id',auth()->id());
+            })->whereDate('due_date', '<', now())->where('status', '!=', 'done');
+            
+        return $count ? $query->count() : $query->orderBy('created_at', 'desc')->paginate(20);
     }
 }
