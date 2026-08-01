@@ -18,6 +18,6 @@ class ProjectRepository extends Repository  implements ProjectRepositoryInterfac
 
     public function getProjects()
     {
-        return $this->model->where('user_id',auth()->user()->id)->paginate(20);
+        return $this->model->where('user_id',auth()->user()->id)->orderBy('created_at', 'desc')->paginate(20);
     }
 }

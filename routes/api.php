@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Project\ProjectController;
+use App\Http\Controllers\Api\Task\TaskController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
@@ -24,4 +25,16 @@ Route::middleware('auth:api')->group(function () {
         Route::put('projects/{project}', [ProjectController::class, 'update']);
         Route::delete('projects/{project}', [ProjectController::class, 'destroy']);
     });
+});
+
+Route::middleware(['auth:api'])->group(function () {
+
+    Route::apiResource('tasks', TaskController::class);
+
+    Route::middleware('task.owner')->group(function () {
+        Route::get('tasks/{task}', [TaskController::class, 'show']);
+        Route::put('tasks/{task}', [TaskController::class, 'update']);
+        Route::delete('tasks/{task}', [TaskController::class, 'destroy']);
+    });
+
 });

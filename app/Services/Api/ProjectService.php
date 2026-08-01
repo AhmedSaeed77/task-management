@@ -61,7 +61,7 @@ class ProjectService
     {
         try
         {
-            $this->projectRepository->find($id);
+            $this->projectRepository->delete($id);
             return $this->responseSuccess(message: 'Project deleted Successfully',data: '');
         }
         catch (Exception $e)

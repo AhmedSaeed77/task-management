@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'project.owner' => \App\Http\Middleware\CheckProjectOwner::class,
+            'task.owner' => \App\Http\Middleware\CheckTaskOwner::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
