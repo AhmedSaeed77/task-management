@@ -7,8 +7,12 @@ use App\Repositories\RepositoryInterface;
 
 class Repository implements RepositoryInterface
 {
-
     protected Model $model;
+
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
 
     public function all()
     {
@@ -18,6 +22,11 @@ class Repository implements RepositoryInterface
     public function find($id): ?Model
     {
         return $this->model->findOrFail($id);
+    }
+
+    public function first($column,$value): ?Model
+    {
+        return $this->model->where($column,$value)->first();
     }
 
     public function create(array $data): ?Model
