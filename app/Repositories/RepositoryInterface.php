@@ -10,6 +10,6 @@ interface RepositoryInterface
     public function find($id): ?Model;
     public function first($column,$value): ?Model;
     public function create(array $data): ?Model;
-    public function update(array $data): ?Model;
+    public function update($id,array $data): ?Model;
     public function delete($id): bool;
 }

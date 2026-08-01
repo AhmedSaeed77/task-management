@@ -39,9 +39,9 @@ class Repository implements RepositoryInterface
         return $this->model;
     }
 
-    public function update(array $data): ?Model
+    public function update($id,array $data): ?Model
     {
-        $model = $this->model->find($data['id'] ?? 0);
+        $model = $this->model->find($id);
         if(!$model)
             return null;
         $model->update($data);
