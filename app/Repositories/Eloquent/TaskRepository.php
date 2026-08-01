@@ -55,4 +55,14 @@ class TaskRepository extends Repository  implements TaskRepositoryInterface
             
         return $count ? $query->count() : $query->orderBy('created_at', 'desc')->paginate(20);
     }
+
+    public function getOverdueTasksForNotification()
+    {
+        return $this->model
+            ->whereDate('due_date', '<', now())
+            ->where('status', '!=', 'done')
+            ->where('is_notified', false)
+            ->with(['project.user'])
+            ->get();
+    }
 }
