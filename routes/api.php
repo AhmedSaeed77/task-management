@@ -18,6 +18,7 @@ Route::group(['prefix' => 'auth-sign', 'controller' => AuthController::class], f
     Route::post('out', 'signOut')->middleware(['auth:api']);
 });
 
+
 Route::middleware('auth:api')->group(function () {
     Route::apiResource('projects',ProjectController::class);
 
